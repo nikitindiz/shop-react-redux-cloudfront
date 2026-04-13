@@ -1,3 +1,8 @@
+# Links
+
+Link to S3 bucket/website: http://nikitindiz-shop-react-redux-cloudfront.s3-website.eu-north-1.amazonaws.com/
+CloudFront URL: https://d3q4voebnh3bq5.cloudfront.net/
+
 # React-shop-cloudfront
 
 This is frontend starter project for nodejs-aws mentoring program. It uses the following technologies:
