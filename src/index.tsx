@@ -7,10 +7,28 @@ import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { theme } from "~/theme";
+import axios from "axios";
+
+axios.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      alert("Unauthorized. Please provide valid credentials.");
+    }
+    if (error.response?.status === 403) {
+      alert("Access denied. Your credentials are invalid.");
+    }
+    return Promise.reject(error);
+  }
+);
 
 const queryClient = new QueryClient({
   defaultOptions: {
-    queries: { refetchOnWindowFocus: false, retry: false, staleTime: Infinity },
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: false,
+      staleTime: Infinity,
+    },
   },
 });
 
